@@ -27,19 +27,19 @@ public class ServClient {
         JpaUtil.validerTransaction();
     }
     
-    public void modifierClient(int niIdClient, String nsNom, String nsPrenom, String nsAdresse, String nsEmail, int niMoisNaissance) {
+    public void modifierClient(Long niIdClient, String nsNom, String nsPrenom, String nsAdresse, String nsEmail, int niMoisNaissance) {
         JpaUtil.ouvrirTransaction();
         ClientDAO.modifierClient(niIdClient, nsNom, nsPrenom, nsAdresse, nsEmail, niMoisNaissance);
         JpaUtil.validerTransaction();
     }
     
-    public List<Client> getClientByName(String aNom) {
+    public List<Client> clientParNom(String aNom) {
         return ClientDAO.getClientByName(aNom);
     }
     
-    public void supprimerClient(int aiIdClient) {
+    public void supprimerClient(Long aiIdClient) {
         JpaUtil.ouvrirTransaction();
-        ClientDAO.delete(aiIdClient);
+        ClientDAO.deleteClient(aiIdClient);
         JpaUtil.validerTransaction();
     }
 }
