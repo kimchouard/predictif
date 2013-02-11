@@ -1,0 +1,6 @@
+# Netbeans Project Files #
+##########################
+/build/
+/nbproject/
+*.xml
+*.mf
