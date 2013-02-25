@@ -8,6 +8,7 @@ import DAO.ClientDAO;
 import DAO.JpaUtil;
 import java.util.List;
 import modele.Client;
+import modele.Medium;
 
 /**
  *
@@ -19,11 +20,15 @@ public class ServClient {
         JpaUtil.creerEntityManager();
     }
     
-    public void ajouterClient(String asNom, String asPrenom, String asAdresse, String asEmail, int aiMoisNaissance) {
+    public void ajouterClient(Client cClient) {
         JpaUtil.ouvrirTransaction();
-        //TODO gérer médium
-        Client cClient = new Client(asNom, asPrenom, asAdresse, asEmail, aiMoisNaissance);
         ClientDAO.add(cClient);
+        JpaUtil.validerTransaction();
+    }
+    
+    public void ajouterMedium(Medium mMedium) {
+        JpaUtil.ouvrirTransaction();
+        ClientDAO.add(mMedium);
         JpaUtil.validerTransaction();
     }
     

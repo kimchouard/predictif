@@ -5,10 +5,13 @@
 package modele;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,14 +22,14 @@ public class Employe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long iCode;
-    private int iNbClients;
+    @OneToMany
+    private List<Client> lNbClients = new ArrayList();
 
-    public int getiNbClients() {
-        return iNbClients;
+    public Employe() {
     }
 
-    public void setiNbClients(int iNbClients) {
-        this.iNbClients = iNbClients;
+    public Employe(List<Client> iNbClients) {
+        this.lNbClients=iNbClients;
     }
 
     public long getiCode() {

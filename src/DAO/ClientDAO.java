@@ -7,6 +7,7 @@ package DAO;
 import java.util.List;
 import javax.persistence.Query;
 import modele.Client;
+import modele.Medium;
 
 /**
  *
@@ -15,6 +16,9 @@ import modele.Client;
 public class ClientDAO {
     public static void add(Client aClient) {
         JpaUtil.obtenirEntityManager().persist(aClient);
+    }
+    public static void add(Medium aMedium) {
+        JpaUtil.obtenirEntityManager().persist(aMedium);
     }
     
     public static List<Client> getClientByName(String aNom) {

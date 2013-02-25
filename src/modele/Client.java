@@ -5,10 +5,13 @@
 package modele;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -24,19 +27,19 @@ public class Client implements Serializable {
     private String sAdresse;
     private String sEmail;
     private int iMoisNaissance;
-    /*@ManyToMany
-    private List<Medium> mMediums = new ArrayList<>();*/
+    @ManyToMany
+    private List<Medium> mMediums = new ArrayList<>();
             
     public Client() {
     }
 
-    public Client(String sNom, String sPrenom, String sAdresse, String sEmail, int iMoisNaissance/*, List<Medium> mMediums*/) {
+    public Client(String sNom, String sPrenom, String sAdresse, String sEmail, int iMoisNaissance, List<Medium> mMediums) {
         this.sNom = sNom;
         this.sPrenom = sPrenom;
         this.sAdresse = sAdresse;
         this.sEmail = sEmail;
         this.iMoisNaissance = iMoisNaissance;
-        //this.mMediums = mMediums;
+        this.mMediums = mMediums;
     }
 
     public String getsNom() {
@@ -81,5 +84,13 @@ public class Client implements Serializable {
 
     public void setsPrenom(String sPrenom) {
         this.sPrenom = sPrenom;
+    }
+
+    public List<Medium> getmMediums() {
+        return mMediums;
+    }
+
+    public void addMediums(Medium mMediums) {
+        this.mMediums.add(mMediums);
     }
 }

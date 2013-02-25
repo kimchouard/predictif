@@ -5,6 +5,7 @@
 package predict.pkgif;
 
 import Service.ServClient;
+import Service.ServVoyance;
 import java.util.List;
 import modele.Client;
 
@@ -16,14 +17,11 @@ import modele.Client;
 public class PredictIF {
     
     public static ServClient servClient = new ServClient();
+    public static ServVoyance ServVoyance = new ServVoyance();
     
     //Créer un client
-    public static void creerClients() throws Exception {
-        servClient.ajouterClient("Robert", "Hyvan", "86 Rue des tilleuls", "prout@hotmail.com", 4);
-        servClient.ajouterClient("Robert", "Pattinson", "86 Rue du zale", "bogos@hotmail.com", 3);
-        servClient.ajouterClient("Legrand", "Jaques", "86 Rue rue rue", "petit@hotmail.com", 6);
-        servClient.ajouterClient("Fourra", "Pere", "86 Rue des tilleuls", "enigme@hotmail.com", 2);
-        servClient.ajouterClient("Dartus", "Pissou", "Carton du coin", "oreiller@hotmail.com", 8);
+    public static void initialiserApp() throws Exception {
+        ServVoyance.initialisation();
     }
     
     //Créer un client
@@ -51,11 +49,11 @@ public class PredictIF {
         try {
             //Essayer medium
             
-            System.out.println("creerClient");
-            creerClients();
-            System.out.println("creerEquipeVide OK \n");
+            System.out.println("initialiser");
+            initialiserApp();
+            System.out.println("inititaliser OK \n");
             
-            System.out.println("afficherClients");
+            /*System.out.println("afficherClients");
             List<Client> clients = afficherClients("Robert");
             System.out.println("afficherClients OK \n");
             
@@ -69,7 +67,7 @@ public class PredictIF {
             
             System.out.println("supprimerClient");
             supprimerClient(robert.getiIdClient());
-            System.out.println("supprimerClient OK \n");
+            System.out.println("supprimerClient OK \n");*/
             
         } catch (Exception ex) {
             ex.printStackTrace(System.err);
