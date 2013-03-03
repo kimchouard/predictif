@@ -13,6 +13,7 @@ import modele.Employe;
 import modele.Medium;
 import modele.Prediction;
 import modele.Prediction.Type;
+import modele.SigneAstro;
 
 /**
  *
@@ -104,6 +105,33 @@ public class VoyanceDAO {
         JpaUtil.obtenirEntityManager().persist(p10);
         JpaUtil.obtenirEntityManager().persist(p11);
         JpaUtil.obtenirEntityManager().persist(p12);
+        
+        //---------------------------------- Signe Astro ---------------------------
+        SigneAstro s1 = new SigneAstro("Capricorne", 1);
+        SigneAstro s2 = new SigneAstro("Verseau", 2);
+        SigneAstro s3 = new SigneAstro("Poison", 3);
+        SigneAstro s4 = new SigneAstro("Belier", 4);
+        SigneAstro s5 = new SigneAstro("Taureau", 5);
+        SigneAstro s6 = new SigneAstro("Gemeau", 6);
+        SigneAstro s7 = new SigneAstro("Cancer", 7);
+        SigneAstro s8 = new SigneAstro("Lyon", 8);
+        SigneAstro s9 = new SigneAstro("Vierge", 9);
+        SigneAstro s10 = new SigneAstro("Balance", 10);
+        SigneAstro s11 = new SigneAstro("Scorpion", 11);
+        SigneAstro s12 = new SigneAstro("Sagitaire", 12);
+        
+        JpaUtil.obtenirEntityManager().persist(s1);
+        JpaUtil.obtenirEntityManager().persist(s2);
+        JpaUtil.obtenirEntityManager().persist(s3);
+        JpaUtil.obtenirEntityManager().persist(s4);
+        JpaUtil.obtenirEntityManager().persist(s5);
+        JpaUtil.obtenirEntityManager().persist(s6);
+        JpaUtil.obtenirEntityManager().persist(s7);
+        JpaUtil.obtenirEntityManager().persist(s8);
+        JpaUtil.obtenirEntityManager().persist(s9);
+        JpaUtil.obtenirEntityManager().persist(s10);
+        JpaUtil.obtenirEntityManager().persist(s11);
+        JpaUtil.obtenirEntityManager().persist(s12);
         JpaUtil.validerTransaction();
     }
 }

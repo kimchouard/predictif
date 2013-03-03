@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import modele.Client;
 import modele.Employe;
 import modele.Medium;
+import modele.SigneAstro;
 
 /**
  *
@@ -40,6 +41,14 @@ public class ClientDAO {
         List<Client> find = (List<Client>) query.getResultList();
         
         return find;
+    }
+    
+    public static String getSigne(int iMois) {
+        String sQuery = "select s from SigneAstro s where s.iMois="+iMois;
+        Query query = JpaUtil.obtenirEntityManager().createQuery(sQuery);
+        List<SigneAstro> find = (List<SigneAstro>) query.getResultList();
+        
+        return find.get(0).getsAstro();
     }
     
     public static List<Medium> getMediumByClient(Long iIdClient) {

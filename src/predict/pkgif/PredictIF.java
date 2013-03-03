@@ -9,6 +9,7 @@ import Service.ServVoyance;
 import java.util.List;
 import modele.Client;
 import modele.Employe;
+import modele.Horoscope;
 import modele.Medium;
 import modele.Prediction;
 
@@ -37,7 +38,22 @@ public class PredictIF {
         return ServVoyance.choisirClient(aClient);
     }
     
-    //Créer un client
+    //Choisir une prediction
+    public static boolean choixPred(Prediction pPred) throws Exception {
+        return ServVoyance.selectPrediction(pPred);
+    }
+    
+    //Choisir un medium
+    public static void choixMedium(Medium mMed) throws Exception {
+        ServVoyance.signerHoroscope(mMed);
+    }
+    
+    //Finaliser Horoscope
+    public static Horoscope finirHoroscope() throws Exception {
+        return ServVoyance.creerHoroscope();
+    }
+    
+    //Afficher les clients
     public static List<Client> afficherClients(String aNom) throws Exception {
         return servClient.clientParNom(aNom);
     }
@@ -78,6 +94,26 @@ public class PredictIF {
                 System.out.println("Recup prédictions");
                 List<Prediction> lPred = ServVoyance.recupPredictions();
                 System.out.println("Recup prédictions OK \n");
+
+                System.out.println("Pred 1");
+                choixPred(lPred.get(0));
+                System.out.println("Pred 1 OK \n");
+
+                System.out.println("Pred 2");
+                choixPred(lPred.get(4));
+                System.out.println("Pred 2 OK \n");
+
+                System.out.println("Pred 3");
+                choixPred(lPred.get(9));
+                System.out.println("Pred 3 OK \n");
+
+                System.out.println("Signer horoscope");
+                choixMedium(cActuel.getmMediums().get(0));
+                System.out.println("Signer Horoscope OK \n");
+
+                System.out.println("Finir horoscope");
+                Horoscope hActuel = finirHoroscope();
+                System.out.println("Finir Horoscope OK \n");
             }
             else
             {

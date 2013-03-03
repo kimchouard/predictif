@@ -6,6 +6,7 @@
     <class>modele.Employe</class>
     <class>modele.Medium</class>
     <class>modele.Prediction</class>
+    <class>modele.SigneAstro</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Predictif"/>
       <property name="javax.persistence.jdbc.password" value="123456"/>

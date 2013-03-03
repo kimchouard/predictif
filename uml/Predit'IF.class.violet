@@ -6,8 +6,8 @@
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>20.0</double>
-       <double>200.0</double>
+       <double>550.0</double>
+       <double>390.0</double>
        <double>380.0</double>
        <double>160.0</double>
       </void>
@@ -41,19 +41,19 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double0"/>
-      <double>20.0</double>
+      <double>550.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double0"/>
-      <double>200.0</double>
+      <double>390.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>20.0</double>
-     <double>200.0</double>
+     <double>550.0</double>
+     <double>390.0</double>
     </void>
    </object>
   </void>
@@ -62,8 +62,8 @@ affecterMedium(aMedium)</string>
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>150.0</double>
-       <double>500.0</double>
+       <double>290.0</double>
+       <double>530.0</double>
        <double>100.0</double>
        <double>120.0</double>
       </void>
@@ -88,19 +88,19 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double1"/>
-      <double>150.0</double>
+      <double>290.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double1"/>
-      <double>500.0</double>
+      <double>530.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>150.0</double>
-     <double>500.0</double>
+     <double>290.0</double>
+     <double>530.0</double>
     </void>
    </object>
   </void>
@@ -109,8 +109,8 @@ affecterMedium(aMedium)</string>
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>270.0</double>
-       <double>60.0</double>
+       <double>530.0</double>
+       <double>260.0</double>
        <double>100.0</double>
        <double>80.0</double>
       </void>
@@ -138,29 +138,29 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double2"/>
-      <double>270.0</double>
+      <double>530.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double2"/>
-      <double>60.0</double>
+      <double>260.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>270.0</double>
-     <double>60.0</double>
+     <double>530.0</double>
+     <double>260.0</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object class="com.horstmann.violet.ClassNode">
+   <object class="com.horstmann.violet.ClassNode" id="ClassNode3">
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>70.0</double>
-       <double>50.0</double>
+       <double>20.0</double>
+       <double>360.0</double>
        <double>160.0</double>
        <double>80.0</double>
       </void>
@@ -188,33 +188,47 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double3"/>
-      <double>70.0</double>
+      <double>20.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double3"/>
-      <double>50.0</double>
+      <double>360.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>70.0</double>
-     <double>50.0</double>
+     <double>20.0</double>
+     <double>360.0</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object class="com.horstmann.violet.ClassNode" id="ClassNode3">
+   <object class="com.horstmann.violet.ClassNode" id="ClassNode4">
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
+       <double>240.0</double>
+       <double>320.0</double>
+       <double>180.0</double>
        <double>140.0</double>
-       <double>390.0</double>
-       <double>120.0</double>
-       <double>60.0</double>
       </void>
      </object>
+    </void>
+    <void property="attributes">
+     <void property="text">
+      <string>sSigne: String</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>+ getcClient(): Client
++ setcClient()
++ getmMedium(): Medium
++ setmMedium()
++ getPred(): Liste Predictions</string>
+     </void>
     </void>
     <void property="name">
      <void property="text">
@@ -228,29 +242,29 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double4"/>
-      <double>140.0</double>
+      <double>240.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double4"/>
-      <double>390.0</double>
+      <double>320.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>140.0</double>
-     <double>390.0</double>
+     <double>240.0</double>
+     <double>320.0</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object class="com.horstmann.violet.ClassNode" id="ClassNode4">
+   <object class="com.horstmann.violet.ClassNode" id="ClassNode5">
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>480.0</double>
-       <double>230.0</double>
+       <double>1060.0</double>
+       <double>430.0</double>
        <double>120.0</double>
        <double>100.0</double>
       </void>
@@ -279,19 +293,19 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double5"/>
-      <double>480.0</double>
+      <double>1060.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double5"/>
-      <double>230.0</double>
+      <double>430.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>480.0</double>
-     <double>230.0</double>
+     <double>1060.0</double>
+     <double>430.0</double>
     </void>
    </object>
   </void>
@@ -300,8 +314,8 @@ affecterMedium(aMedium)</string>
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>520.0</double>
-       <double>30.0</double>
+       <double>40.0</double>
+       <double>20.0</double>
        <double>500.0</double>
        <double>140.0</double>
       </void>
@@ -328,19 +342,19 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double6"/>
-      <double>520.0</double>
+      <double>40.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double6"/>
-      <double>30.0</double>
+      <double>20.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>520.0</double>
-     <double>30.0</double>
+     <double>40.0</double>
+     <double>20.0</double>
     </void>
    </object>
   </void>
@@ -349,8 +363,8 @@ affecterMedium(aMedium)</string>
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>550.0</double>
-       <double>400.0</double>
+       <double>720.0</double>
+       <double>30.0</double>
        <double>440.0</double>
        <double>240.0</double>
       </void>
@@ -358,23 +372,22 @@ affecterMedium(aMedium)</string>
     </void>
     <void property="attributes">
      <void property="text">
-      <string>- int iCodeEmploye
-- int iActualClient
-- int itActualPredictions[3]
-- int iActualMedium
-- List&lt;int&gt; liListesMediums
-- List&lt;Prediction&gt; lpPredictions</string>
+      <string>- Employe eEmploye;
+- Client cClient;
+- Medium mMedium;
+- String sHoroscope;
+- List&lt;Prediction&gt; liListesPredictions;</string>
      </void>
     </void>
     <void property="methods">
      <void property="text">
-      <string>+ identifierEmp(iCode) : List&lt;Client&gt;
-+ choisirClient(iIdClient) : List&lt;Medium&gt;
+      <string>+ identifierEmp(iCode) : Employe
++ choisirClient(iIdClient) : Client
 + recupPredictions()
-+ selectionPrediction(iIdPred)
++ selectPrediction(iIdPred)
 + signerHoroscope(iIdMedium)
 + creerHoroscope() : string //remet les variables locales à 0, sauf codeemploye
-
++ getLastHoroscope();
 + initialisation()</string>
      </void>
     </void>
@@ -389,26 +402,26 @@ affecterMedium(aMedium)</string>
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double7"/>
-      <double>550.0</double>
+      <double>720.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double7"/>
-      <double>400.0</double>
+      <double>30.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>550.0</double>
-     <double>400.0</double>
+     <double>720.0</double>
+     <double>30.0</double>
     </void>
    </object>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
     <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+     <object class="com.horstmann.violet.BentStyle" field="HV"/>
     </void>
     <void property="endArrowHead">
      <object class="com.horstmann.violet.ArrowHead" field="V"/>
@@ -439,7 +452,7 @@ affecterMedium(aMedium)</string>
     </void>
    </object>
    <object idref="ClassNode0"/>
-   <object idref="ClassNode3"/>
+   <object idref="ClassNode4"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
@@ -457,7 +470,7 @@ affecterMedium(aMedium)</string>
     </void>
    </object>
    <object idref="ClassNode1"/>
-   <object idref="ClassNode3"/>
+   <object idref="ClassNode4"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
@@ -474,8 +487,41 @@ affecterMedium(aMedium)</string>
      <string>1</string>
     </void>
    </object>
-   <object idref="ClassNode4"/>
+   <object idref="ClassNode5"/>
    <object idref="ClassNode0"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="VH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+    <void property="endLabel">
+     <string>1</string>
+    </void>
+   </object>
+   <object idref="ClassNode4"/>
+   <object idref="ClassNode2"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+    <void property="endLabel">
+     <string>1</string>
+    </void>
+    <void property="startLabel">
+     <string>1..n</string>
+    </void>
+   </object>
+   <object idref="ClassNode4"/>
+   <object idref="ClassNode3"/>
   </void>
  </object>
 </java>

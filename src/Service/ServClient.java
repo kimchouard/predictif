@@ -49,6 +49,10 @@ public class ServClient {
         return ClientDAO.getClientByName(aNom);
     }
     
+    public String signeAstro(int iMois) {
+        return ClientDAO.getSigne(iMois);
+    }
+    
     public List<Medium> mediumParClient(Long iIdClient) {
         return ClientDAO.getMediumByClient(iIdClient);
     }
