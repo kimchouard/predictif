@@ -21,19 +21,34 @@ import javax.persistence.OneToMany;
 public class Employe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long iCode;
+    private Long iCode;
+    private int iNbClient;
     @OneToMany
-    private List<Client> lNbClients = new ArrayList();
+    private List<Client> lClients = new ArrayList();
 
-    public Employe() {
+    public int getiNbClient() {
+        return iNbClient;
     }
 
-    public Employe(List<Client> iNbClients) {
-        this.lNbClients=iNbClients;
+    public List<Client> getlClients() {
+        return lClients;
+    }
+
+    public Employe() {
+        this.iNbClient = 0;
+    }
+
+    public Employe(List<Client> lClients) {
+        this.lClients=lClients;
+        this.iNbClient = lClients.size();
     }
 
     public long getiCode() {
         return iCode;
     }
     
+    public void addClient(Client cClient) {
+        iNbClient++;
+        lClients.add(cClient);
+    }
 }

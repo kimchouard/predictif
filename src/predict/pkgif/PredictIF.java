@@ -8,6 +8,9 @@ import Service.ServClient;
 import Service.ServVoyance;
 import java.util.List;
 import modele.Client;
+import modele.Employe;
+import modele.Medium;
+import modele.Prediction;
 
 
 /**
@@ -19,9 +22,19 @@ public class PredictIF {
     public static ServClient servClient = new ServClient();
     public static ServVoyance ServVoyance = new ServVoyance();
     
-    //Créer un client
+    //Rentrez les valeurs de base
     public static void initialiserApp() throws Exception {
         ServVoyance.initialisation();
+    }
+    
+    //Loguer un employé
+    public static Employe idEmp(Long idEmp) throws Exception {
+        return ServVoyance.identifierEmp(idEmp);
+    }
+    
+    //Choisir un client
+    public static Client choixClient(Client aClient) throws Exception {
+        return ServVoyance.choisirClient(aClient);
     }
     
     //Créer un client
@@ -53,12 +66,29 @@ public class PredictIF {
             initialiserApp();
             System.out.println("inititaliser OK \n");
             
+            System.out.println("connexion");
+            Employe eActuel = idEmp(Long.valueOf(5));
+            if (eActuel != null) {
+                System.out.println("connexion OK \n");
+            
+                System.out.println("choix client");
+                Client cActuel = choixClient(eActuel.getlClients().get(0));
+                System.out.println("choix client OK \n");
+
+                System.out.println("Recup prédictions");
+                List<Prediction> lPred = ServVoyance.recupPredictions();
+                System.out.println("Recup prédictions OK \n");
+            }
+            else
+            {
+                System.out.println("Connexion échoué.");
+            }
+            
             /*System.out.println("afficherClients");
             List<Client> clients = afficherClients("Robert");
             System.out.println("afficherClients OK \n");
             
             Client robert = clients.get(0);
-            
             
             System.out.println("modifierClient");
             modifierClient(robert.getiIdClient(), robert.getsNom(), robert.getsPrenom(), robert.getsAdresse(), robert.getsEmail(), 7);

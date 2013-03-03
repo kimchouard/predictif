@@ -4,10 +4,14 @@
  */
 package Service;
 
+import DAO.ClientDAO;
 import DAO.JpaUtil;
 import DAO.VoyanceDAO;
 import java.util.ArrayList;
 import java.util.List;
+import modele.Client;
+import modele.Employe;
+import modele.Medium;
 import modele.Prediction;
 
 /**
@@ -15,33 +19,37 @@ import modele.Prediction;
  * @author Kim
  */
 public class ServVoyance {
-    private int iCodeEmploye;
-    private int iActualClient;
-    //private int iActualPredictions[3];
+    private Employe eEmploye;
+    private Client cClient;
+    private int[] iActualPredictions = new int[3];
     private int iActualMedium;
     List<Integer> liListesMediums = new ArrayList();
-    List<Prediction> lpPredictions = new ArrayList();
 
     public ServVoyance() {
         //JpaUtil.creerEntityManager();
-        this.iCodeEmploye = 0;
-        this.iActualClient = 0;
-        /*for(int i=0;i<3;i++) {
+        this.eEmploye = null;
+        this.cClient = null;
+        for(int i=0;i<3;i++) {
             this.iActualPredictions[i]=0;
-        }*/
+        }
         this.iActualMedium = 0;
     }
     
-    public boolean identifierEmp(int iCode) {
-        JpaUtil.ouvrirTransaction();
-        iCodeEmploye=VoyanceDAO.identifyEmp(iCode);
-        JpaUtil.validerTransaction();
-        return (iCodeEmploye!=0)?true:false;
+    public Employe identifierEmp(Long iCode) {
+        eEmploye = VoyanceDAO.identifyEmp(iCode);
+        return (eEmploye!=null)?eEmploye:null;
+    }
+    
+    public Client choisirClient(Client aClient) {
+        cClient = aClient;
+        return cClient;
+    }
+    
+    public List<Prediction> recupPredictions() {
+        return VoyanceDAO.recupPredictions();
     }
     
     public void initialisation() {
-        JpaUtil.ouvrirTransaction();
         VoyanceDAO.init();
-        JpaUtil.validerTransaction();
     }
 }

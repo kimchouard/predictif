@@ -21,7 +21,7 @@ import javax.persistence.ManyToMany;
 public class Medium implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int iIdMedium;
+    private Long iIdMedium;
     private String sNom;
 
     public Medium() {
@@ -39,7 +39,7 @@ public class Medium implements Serializable {
         this.sNom = sNom;
     }
 
-    public int getiIdMedium() {
+    public Long getiIdMedium() {
         return iIdMedium;
     }
 }
