@@ -23,6 +23,10 @@ public class Horoscope {
         this.mMedium = null;
     }
 
+    public String getsSigne() {
+        return sSigne;
+    }
+
     public Client getcClient() {
         return cClient;
     }
@@ -43,12 +47,16 @@ public class Horoscope {
     public List<Prediction> getPred() {
         return lpPredictions;
     }
+    
+    public boolean complete() {
+        return (lpPredictions.size() < 3) ? false : true;
+    }
 
     public boolean addPred(Prediction aPredictions) {
         //On vérifie qu'il n'y a pas déjà eu une prediction de ce type
         boolean valide = true;
         for (int i=0; i < lpPredictions.size(); i++) {
-            if (aPredictions.geteType() == lpPredictions.get(i).geteType())
+            if (aPredictions.getsType() == lpPredictions.get(i).getsType())
                 valide = false;
         }
         

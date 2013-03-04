@@ -4,14 +4,12 @@
  */
 package predict.pkgif;
 
-import Service.ServClient;
-import Service.ServVoyance;
+import Service.*;
+import java.util.ArrayList;
 import java.util.List;
-import modele.Client;
-import modele.Employe;
-import modele.Horoscope;
-import modele.Medium;
-import modele.Prediction;
+import java.util.Scanner;
+import modele.*;
+import modele.Prediction.Type;
 
 
 /**
@@ -23,117 +21,257 @@ public class PredictIF {
     public static ServClient servClient = new ServClient();
     public static ServVoyance ServVoyance = new ServVoyance();
     
-    //Rentrez les valeurs de base
-    public static void initialiserApp() throws Exception {
-        ServVoyance.initialisation();
-    }
-    
-    //Loguer un employé
-    public static Employe idEmp(Long idEmp) throws Exception {
-        return ServVoyance.identifierEmp(idEmp);
-    }
-    
-    //Choisir un client
-    public static Client choixClient(Client aClient) throws Exception {
-        return ServVoyance.choisirClient(aClient);
-    }
-    
-    //Choisir une prediction
-    public static boolean choixPred(Prediction pPred) throws Exception {
-        return ServVoyance.selectPrediction(pPred);
-    }
-    
-    //Choisir un medium
-    public static void choixMedium(Medium mMed) throws Exception {
-        ServVoyance.signerHoroscope(mMed);
-    }
-    
-    //Finaliser Horoscope
-    public static Horoscope finirHoroscope() throws Exception {
-        return ServVoyance.creerHoroscope();
-    }
-    
     //Afficher les clients
-    public static List<Client> afficherClients(String aNom) throws Exception {
-        return servClient.clientParNom(aNom);
+    public static Client getClient() {
+        Scanner scanner = new Scanner( System.in );
+        String input;
+        
+        System.out.println("Merci de rentrez le nom :");
+        String sNom = scanner.nextLine();
+        System.out.println("Merci de rentrez le prénom :");
+        String sPrenom = scanner.nextLine();
+        System.out.println("Merci de rentrez l'adresse :");
+        String sAdresse = scanner.nextLine();
+        System.out.println("Merci de rentrez l'email :");
+        String sEmail = scanner.nextLine();
+        int iMoisNaissance;
+        do {
+            System.out.println("Merci de rentrez le mois de naissance (1-12) :");
+            String sMois = scanner.nextLine();
+            iMoisNaissance = Integer.valueOf(sMois);
+        } while (iMoisNaissance == 0 && iMoisNaissance > 12);
+
+        System.out.println("Mediums disponibles : ");
+        List<Medium> lMed = servClient.recupMediums();
+        int o = 0;
+        for (Medium p : lMed) {
+            System.out.println(o+") "+p.getsNom());
+            o++;
+        }
+        List<Medium> mChoisis = new ArrayList();
+        int idMed;
+        do {
+            System.out.println("Choisissez un client grace à son chiffre :");
+            input = scanner.nextLine();
+            idMed = Integer.valueOf(input);
+        } while (!(idMed < lMed.size()) && (idMed >= 0));
+         mChoisis.add(lMed.get(idMed));
+
+        Client cTemp = new Client(sNom, sPrenom, sAdresse, sEmail, iMoisNaissance, mChoisis);
+        
+        return cTemp;
     }
     
-    //Créer un client
-    public static void supprimerClient(Long iId) throws Exception {
-        servClient.supprimerClient(iId);
+    public static List<Client> afficherClients(String aNom) {
+        List<Client> lClient = servClient.clientParNom(aNom);
+        int j = 0;
+        for (Client i : lClient) {
+            System.out.println(j+") "+i.getsNom()+" "+i.getsPrenom());
+            j++;
+        }
+        return lClient;
     }
     
-    //Créer un client
-    public static void modifierClient(Long niIdClient, String nsNom, String nsPrenom, String nsAdresse, String nsEmail, int niMoisNaissance) throws Exception {
-        servClient.modifierClient(niIdClient, nsNom, nsPrenom, nsAdresse, nsEmail, niMoisNaissance);
+    public static Client chercherClient() {
+        Scanner scanner = new Scanner( System.in );
+        String input;
+        
+        System.out.println("Merci de rentrez le nom du client recherché :");
+        String sNom = scanner.nextLine();
+
+        List<Client> lClient = afficherClients(sNom);
+        int idClient;
+        do {
+            System.out.println("Choisissez un client grace à son chiffre :");
+            input = scanner.nextLine();
+            idClient = Integer.valueOf(input);
+        } while (!(idClient < lClient.size()) && (idClient >= 0));
+        Client cChoisit = lClient.get(idClient);
+        
+        return cChoisit;
     }
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("\n ******* creation");
-        
-        // TODO code application logic heretry {
         try {
-            //Essayer medium
+            //----------------------------------------------------------------------------
+            //                          Initialisation
+            //----------------------------------------------------------------------------
+            Scanner scanner = new Scanner( System.in );
+            String input;
             
-            System.out.println("initialiser");
-            initialiserApp();
-            System.out.println("inititaliser OK \n");
+            //System.out.println("Press Enter to lunch the application.");
+            //scanner.nextLine();
             
-            System.out.println("connexion");
-            Employe eActuel = idEmp(Long.valueOf(5));
-            if (eActuel != null) {
-                System.out.println("connexion OK \n");
+            ServVoyance.initialisation();
+            System.out.println("Initialisation terminée.\n");
+            do {
+                System.out.println("Merci de chosir un mode de gestion : 1) Client, 2) Horoscope.");
+                input = scanner.nextLine();
+                System.out.println("Valeur rentrée : "+input);
+            } while (!(("1".equals(input))||("2".equals(input))));
             
-                System.out.println("choix client");
-                Client cActuel = choixClient(eActuel.getlClients().get(0));
-                System.out.println("choix client OK \n");
+            
+            
+            //----------------------------------------------------------------------------
+            //                          Gestion Clients
+            //----------------------------------------------------------------------------
+            if ("1".equals(input)) {
+                do {
+                   System.out.println("Liste des clients :");
+                   afficherClients("");
+                    
+                    do {
+                        System.out.println("Voulez-vous : 1) Ajouter un client, 2) Chercher/Modifier un client, 3) Chercher/Supprimer un client.");
+                        input = scanner.nextLine();
+                        System.out.println("Valeur rentrée : "+input);
+                    } while (!(("1".equals(input))||("2".equals(input))||("3".equals(input))));
 
-                System.out.println("Recup prédictions");
-                List<Prediction> lPred = ServVoyance.recupPredictions();
-                System.out.println("Recup prédictions OK \n");
+                //----------------------------------------------------------------------------
+                //                          Ajouter Client
+                //----------------------------------------------------------------------------
+                    if ("1".equals(input)) {
+                        Client cTemp = getClient();
 
-                System.out.println("Pred 1");
-                choixPred(lPred.get(0));
-                System.out.println("Pred 1 OK \n");
+                        servClient.ajouterClient(cTemp);
+                    }
 
-                System.out.println("Pred 2");
-                choixPred(lPred.get(4));
-                System.out.println("Pred 2 OK \n");
+                //----------------------------------------------------------------------------
+                //                          Chercher/Modifier Client
+                //----------------------------------------------------------------------------
+                    else if ("2".equals(input)) {
+                        Client cTemp = chercherClient();
 
-                System.out.println("Pred 3");
-                choixPred(lPred.get(9));
-                System.out.println("Pred 3 OK \n");
+                        System.out.println("Merci de rentrez les nouvelles informations du client :");
+                        Client cNew = getClient();
 
-                System.out.println("Signer horoscope");
-                choixMedium(cActuel.getmMediums().get(0));
-                System.out.println("Signer Horoscope OK \n");
+                        servClient.modifierClient(cTemp.getiIdClient(),cNew.getsNom(), cNew.getsPrenom(), cNew.getsAdresse(), cNew.getsEmail(), cNew.getiMoisNaissance());
+                    }
 
-                System.out.println("Finir horoscope");
-                Horoscope hActuel = finirHoroscope();
-                System.out.println("Finir Horoscope OK \n");
+                //----------------------------------------------------------------------------
+                //                          Chercher/Supprimer Client
+                //----------------------------------------------------------------------------
+                    else if ("3".equals(input)) {
+                        Client cTemp = chercherClient();
+
+                        System.out.println("Voulez vous supprimer "+cTemp.getsNom()+" "+cTemp.getsPrenom());
+
+                        servClient.supprimerClient(cTemp.getiIdClient());
+                    }
+                    
+                    System.out.println("La journée est-elle terminée ? (Y/N)");
+                    input = scanner.nextLine();
+                } while (!"Y".equals(input));
             }
-            else
-            {
-                System.out.println("Connexion échoué.");
+            
+            //----------------------------------------------------------------------------
+            //                       Fin Gestion Clients
+            //----------------------------------------------------------------------------
+            
+            
+            
+            //----------------------------------------------------------------------------
+            //                          Gestion Horoscope
+            //----------------------------------------------------------------------------
+            else if ("2".equals(input)) {
+            //----------------------------------------------------------------------------
+            //                          Connexion
+                Employe eActuel;
+
+                do {
+                    System.out.println("Connectez vous avec un code valide :");
+                    input = scanner.nextLine();
+                    eActuel = ServVoyance.identifierEmp(Long.valueOf(input));
+                } while(eActuel == null);
+                System.out.println("Connexion OK \n");
+                
+                do {
+                //----------------------------------------------------------------------------
+                //                          Choix client
+                    System.out.println("Clients disponibles : ");
+                    List<Client> lClient = eActuel.getlClients();
+                    int j = 0;
+                    for (Client i : lClient) {
+                        System.out.println(j+") "+i.getsNom()+" "+i.getsPrenom());
+                        j++;
+                    }
+                    int idClient;
+                    do {
+                        System.out.println("Choisissez un client grace à son chiffre :");
+                        input = scanner.nextLine();
+                        idClient = Integer.valueOf(input);
+                    } while (!(idClient < lClient.size()) && (idClient >= 0));
+                    Client cChoisit = lClient.get(idClient);
+                    ServVoyance.choisirClient(cChoisit);
+                    System.out.println("Client valide.\n");
+
+                //----------------------------------------------------------------------------
+                //                          Choix prédictions
+                    for (int i=0;i<3;i++) {
+                        System.out.println("Recupération des prédictions "+Type.values()[i]);
+                        List<Prediction> lPred = ServVoyance.recupPredictions(Type.values()[i]);
+                        int k = 0;
+                        for (Prediction l : lPred) {
+                            System.out.println(k+") "+l.getiIntitulle());
+                            k++;
+                        }
+                        int idPred;
+                        do {
+                            System.out.println("Choisissez une prediction grace à son chiffre :");
+                            input = scanner.nextLine();
+                            idPred = Integer.valueOf(input);
+                        } while (!(idPred < lPred.size()) && (idPred >= 0));
+                        Prediction pChoisit = lPred.get(idPred);
+                        ServVoyance.selectPrediction(pChoisit);
+                        System.out.println("Prediction valide.\n");
+                    }
+
+                //----------------------------------------------------------------------------
+                //                          Signature médium
+                    System.out.println("Signer horoscope avec un medium :");
+                    List<Medium> lMed = cChoisit.getmMediums();
+                    int n = 0;
+                    for (Medium m : lMed) {
+                        System.out.println(n+") "+m.getsNom());
+                        n++;
+                    }
+                    int idMed;
+                    do {
+                        System.out.println("Choisissez une prediction grace à son chiffre :");
+                        input = scanner.nextLine();
+                        idMed = Integer.valueOf(input);
+                    } while (!(idMed < lMed.size()) && (idMed >= 0));
+                    Medium mChoisit = lMed.get(idMed);
+                    ServVoyance.signerHoroscope(mChoisit);
+                    System.out.println("Medium valide. Horoscope Signé.\n");
+
+                //----------------------------------------------------------------------------
+                //                          Finalisation de l'horoscope 
+                    System.out.println("Appuyer sur entrée pour finir l'horoscope.");
+                    input = scanner.nextLine();
+                    Horoscope hActuel = ServVoyance.creerHoroscope();
+                    System.out.println("Horoscope terminé :\n");
+                    System.out.println(hActuel.getcClient().getsNom()+" "+hActuel.getcClient().getsPrenom());
+                    System.out.println(hActuel.getcClient().getsAdresse());
+                    System.out.println("Votre n° client : "+hActuel.getcClient().getiIdClient());
+                    System.out.println("Votre signe astrologique : "+hActuel.getsSigne());
+                    String Meds = "";
+                    for (Medium med : hActuel.getcClient().getmMediums()) { Meds+=med.getsNom()+", "; }
+                    System.out.println("Vos médiums préférés : "+Meds);
+                    
+                    for (Prediction pred : hActuel.getPred()) {
+                        System.out.println(pred.getsType()+" ("+pred.getiIntensite()+") : "+pred.getiIntitulle()+"\n");
+                    }
+                    
+                    System.out.println("La journée est-elle terminée ? (Y/N)");
+                    input = scanner.nextLine();
+                } while (!"Y".equals(input));
             }
-            
-            /*System.out.println("afficherClients");
-            List<Client> clients = afficherClients("Robert");
-            System.out.println("afficherClients OK \n");
-            
-            Client robert = clients.get(0);
-            
-            System.out.println("modifierClient");
-            modifierClient(robert.getiIdClient(), robert.getsNom(), robert.getsPrenom(), robert.getsAdresse(), robert.getsEmail(), 7);
-            System.out.println("modifierClient OK \n");
-            
-            
-            System.out.println("supprimerClient");
-            supprimerClient(robert.getiIdClient());
-            System.out.println("supprimerClient OK \n");*/
+            //----------------------------------------------------------------------------
+            //                         Fin Gestion Horoscope
+            //----------------------------------------------------------------------------
             
         } catch (Exception ex) {
             ex.printStackTrace(System.err);

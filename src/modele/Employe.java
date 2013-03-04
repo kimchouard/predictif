@@ -22,19 +22,18 @@ public class Employe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long iCode;
+    private String sNom;
     private int iNbClient;
     @OneToMany
     private List<Client> lClients = new ArrayList();
 
-    public int getiNbClient() {
-        return iNbClient;
-    }
-
-    public List<Client> getlClients() {
-        return lClients;
-    }
-
     public Employe() {
+        this.sNom = "";
+        this.iNbClient = 0;
+    }
+
+    public Employe(String sNom) {
+        this.sNom = sNom;
         this.iNbClient = 0;
     }
 
@@ -45,6 +44,18 @@ public class Employe implements Serializable {
 
     public long getiCode() {
         return iCode;
+    }
+
+    public int getiNbClient() {
+        return iNbClient;
+    }
+
+    public List<Client> getlClients() {
+        return lClients;
+    }
+
+    public String getsNom() {
+        return sNom;
     }
     
     public void addClient(Client cClient) {

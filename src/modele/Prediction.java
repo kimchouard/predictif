@@ -17,21 +17,21 @@ import javax.persistence.Id;
 @Entity
 public class Prediction implements Serializable {
     public enum Type {
-        AMOUR, TRAVAIL, SANTE
+        AMOUR, TRAVAIL, SANTE, TOUT
     }
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long iIdPred;
-    protected Type eType;
+    protected String sType;
     protected int iIntensite;
     protected String iIntitulle;
 
     public Prediction() {
     }
 
-    public Prediction(Type eType, int iIntensite, String iIntitulle) {
-        this.eType = eType;
+    public Prediction(String sType, int iIntensite, String iIntitulle) {
+        this.sType = sType;
         this.iIntensite = iIntensite;
         this.iIntitulle = iIntitulle;
     }
@@ -40,12 +40,12 @@ public class Prediction implements Serializable {
         return iIdPred;
     }
 
-    public Type geteType() {
-        return eType;
+    public String getsType() {
+        return sType;
     }
 
-    public void seteType(Type eType) {
-        this.eType = eType;
+    public void seteType(String sType) {
+        this.sType = sType;
     }
 
     public int getiIntensite() {

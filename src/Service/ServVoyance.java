@@ -4,16 +4,9 @@
  */
 package Service;
 
-import DAO.ClientDAO;
-import DAO.JpaUtil;
-import DAO.VoyanceDAO;
-import java.util.ArrayList;
+import DAO.*;
 import java.util.List;
-import modele.Client;
-import modele.Employe;
-import modele.Horoscope;
-import modele.Medium;
-import modele.Prediction;
+import modele.*;
 
 /**
  *
@@ -37,8 +30,8 @@ public class ServVoyance {
         return aClient;
     }
     
-    public List<Prediction> recupPredictions() {
-        return VoyanceDAO.recupPredictions();
+    public List<Prediction> recupPredictions(Prediction.Type aType) {
+        return VoyanceDAO.recupPredictions(aType);
     }
     
     public boolean selectPrediction(Prediction aPred) {
@@ -58,13 +51,17 @@ public class ServVoyance {
     }
     
     public Horoscope creerHoroscope() {
-        //Création de l'horoscope
-        Horoscope tempHoroscope = hHoroscope;
-        
-        //Réinitialisation des variables
-        this.hHoroscope = new Horoscope();
-        
-        return tempHoroscope;
+        if (hHoroscope.complete()) {
+            //Création de l'horoscope
+            Horoscope tempHoroscope = hHoroscope;
+
+            //Réinitialisation des variables
+            this.hHoroscope = new Horoscope();
+
+            return tempHoroscope;
+        } else {
+            return null;
+        }
     }
     
     public void initialisation() {

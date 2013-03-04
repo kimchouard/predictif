@@ -1,0 +1,68 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="743" measuredH="607" mockupW="450" mockupH="593">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="293" y="14" w="450" h="593" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Predict%27if%20-%20Creation%20Horoscope%0Ahttp%3A//predictif.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::FieldSet" x="293" y="104" w="450" h="94" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Choix%20du%20medium</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::List" x="328" y="119" w="100" h="65" measuredW="100" measuredH="126" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Kim%20Dotcom%0ABatman%0ASpiderman</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="412" y="126" w="-1" h="51" measuredW="16" measuredH="100" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::FieldSet" x="293" y="205" w="450" h="94" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Choix%20prediction%20amour</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="293" y="306" w="450" h="94" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Choix%20prediction%20sante</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::FieldSet" x="293" y="408" w="450" h="94" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Choix%20prediction%20travail</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::DataGrid" x="293" y="220" w="450" h="73" measuredW="330" measuredH="111" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Intensite%2C%20Intitule%0A1%2C%20Oula%20ne%20sortez%20pas%20de%20chez%20vous%20%21%0A2%2C%20Vous%20aurez%20une%20belle%20surprise%20aujourd%27hui...%0A3%2C%20Vous%20allez%20choper%20a%20coup%20sur%20%21%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="293" y="321" w="450" h="73" measuredW="272" measuredH="81" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Intensite%2C%20Intitule%0A1%2C%20Cancer%20en%20vue%20%21%0A2%2C%20Votre%20%E9tat%20s%27am%E9liore%20petit%20%E0%20petit</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::DataGrid" x="293" y="423" w="450" h="73" measuredW="240" measuredH="81" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Intensite%2C%20Intitule%0A1%2C%20Le%20licenciement%20arrive%20%21%0A2%2C%20Une%20augmentation%20en%20vue%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="727" y="238" w="-1" h="55" measuredW="16" measuredH="100" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="727" y="330" w="-1" h="55" measuredW="16" measuredH="100" zOrder="11" locked="false" isInGroup="-1"/>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="727" y="441" w="-1" h="55" measuredW="16" measuredH="100" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Button" x="403" y="511" w="-1" h="-1" measuredW="92" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reinitialiser</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="629" y="545" w="-1" h="-1" measuredW="98" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Deconnexion</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::PointyButton" x="534" y="511" w="-1" h="-1" measuredW="130" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Valider%20l%27horoscope</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

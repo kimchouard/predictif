@@ -6,10 +6,7 @@ package DAO;
 
 import java.util.List;
 import javax.persistence.Query;
-import modele.Client;
-import modele.Employe;
-import modele.Medium;
-import modele.SigneAstro;
+import modele.*;
 
 /**
  *
@@ -36,7 +33,11 @@ public class ClientDAO {
     }
     
     public static List<Client> getClientByName(String aNom) {
-        String sQuery = "select c from Client c where c.sNom=\""+aNom+"\"";
+        String sQuery = "select c from Client c ";
+        if (aNom != "") {
+            sQuery += "where c.sNom=\""+aNom+"\"";
+        }
+        
         Query query = JpaUtil.obtenirEntityManager().createQuery(sQuery);
         List<Client> find = (List<Client>) query.getResultList();
         
@@ -51,8 +52,8 @@ public class ClientDAO {
         return find.get(0).getsAstro();
     }
     
-    public static List<Medium> getMediumByClient(Long iIdClient) {
-        String sQuery = "select m from Medium m, CLIENT_MEDIUM c where m.IIDMEDIUM = c.MMEDIUMS_IIDMEDIUM and c.CLIENT_IIDCLIENT=\""+iIdClient+"\"";
+    public static List<Medium> getMediums() {
+        String sQuery = "select m from Medium m";
         Query query = JpaUtil.obtenirEntityManager().createQuery(sQuery);
         List<Medium> find = (List<Medium>) query.getResultList();
         

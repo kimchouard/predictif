@@ -8,12 +8,8 @@ import Service.ServClient;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
-import modele.Client;
-import modele.Employe;
-import modele.Medium;
-import modele.Prediction;
+import modele.*;
 import modele.Prediction.Type;
-import modele.SigneAstro;
 
 /**
  *
@@ -29,9 +25,10 @@ public class VoyanceDAO {
         return (cEmp!=null)?cEmp:null;
     }
         
-    public static List<Prediction> recupPredictions() {
+    public static List<Prediction> recupPredictions(Prediction.Type aType) {
         //On récupère tous les employé triés par nombre de clients
-        String sQuery = "select p from Prediction p order by p.eType";
+        String sQuery = "select p from Prediction p ";
+        sQuery += (aType != Type.TOUT) ?  "where p.sType = \""+aType.toString()+"\"" : "order by p.sType";
         Query query = JpaUtil.obtenirEntityManager().createQuery(sQuery);
         List<Prediction> find = (List<Prediction>) query.getResultList();
         
@@ -76,22 +73,23 @@ public class VoyanceDAO {
         servClient.ajouterClient(c4);
         servClient.ajouterClient(c5);
         
-        //---------------------------------- Predictions ---------------------------
         JpaUtil.ouvrirTransaction();
-        Prediction p1 = new Prediction(Type.AMOUR, 4, "Tout est bien dans le meilleur des mondes.");
-        Prediction p2 = new Prediction(Type.AMOUR, 2, "Les hommes ne demanderont qu'à être chouchoutés et ne penseront pas à courir les jupons, alors que les femmes ne chercheront qu'à faire plaisir à leurs partenaires. ");
-        Prediction p3 = new Prediction(Type.AMOUR, 1, "Vénus, la planète de l'amour, sera bien placée pour vous, mais elle ne sera pas la seule, et vous aurez tellement à faire par ailleurs que vos émois sentimentaux ne seront pas prioritaires.");
-        Prediction p4 = new Prediction(Type.AMOUR, 3, "Trop manger de sarces va finir par vous porter préjudice.");
         
-        Prediction p5 = new Prediction(Type.TRAVAIL, 1, "Climat professionnel un peu confus sous l'impact d'aspects planétaires contradictoires.");
-        Prediction p6 = new Prediction(Type.TRAVAIL, 2, "Méfiez-vous : vous serez assez distrait et risquez d'oublier des choses importantes.");
-        Prediction p7 = new Prediction(Type.TRAVAIL, 3, "Attention également à bien vous faire comprendre de vos interlocuteurs, de manière à éviter tout malentendu.");
-        Prediction p8 = new Prediction(Type.TRAVAIL, 4, "Ne vous rendez pas au travail, votre boss vous annonce un licenciement économique.");
+        //---------------------------------- Predictions ---------------------------
+        Prediction p1 = new Prediction(Type.AMOUR.toString(), 4, "Tout est bien dans le meilleur des mondes.");
+        Prediction p2 = new Prediction(Type.AMOUR.toString(), 2, "Les hommes ne demanderont qu'à être chouchoutés et ne penseront pas à courir les jupons, alors que les femmes ne chercheront qu'à faire plaisir à leurs partenaires. ");
+        Prediction p3 = new Prediction(Type.AMOUR.toString(), 1, "Vénus, la planète de l'amour, sera bien placée pour vous, mais elle ne sera pas la seule, et vous aurez tellement à faire par ailleurs que vos émois sentimentaux ne seront pas prioritaires.");
+        Prediction p4 = new Prediction(Type.AMOUR.toString(), 3, "Trop manger de sarces va finir par vous porter préjudice.");
         
-        Prediction p9 = new Prediction(Type.SANTE, 2, "Votre énergie sera en nette hausse.");
-        Prediction p10 = new Prediction(Type.SANTE, 3, "Vous serez en grande forme physique et morale, et ferez preuve d'un élan qui fera plaisir à voir.");
-        Prediction p11 = new Prediction(Type.SANTE, 1, "Votre trop-plein d'énergie risque de se changer en stress.");
-        Prediction p12 = new Prediction(Type.SANTE, 4, "Vous allez mourir demain. Profitez bien de votre dernière journée sur cette douce planète.");
+        Prediction p5 = new Prediction(Type.TRAVAIL.toString(), 1, "Climat professionnel un peu confus sous l'impact d'aspects planétaires contradictoires.");
+        Prediction p6 = new Prediction(Type.TRAVAIL.toString(), 2, "Méfiez-vous : vous serez assez distrait et risquez d'oublier des choses importantes.");
+        Prediction p7 = new Prediction(Type.TRAVAIL.toString(), 3, "Attention également à bien vous faire comprendre de vos interlocuteurs, de manière à éviter tout malentendu.");
+        Prediction p8 = new Prediction(Type.TRAVAIL.toString(), 4, "Ne vous rendez pas au travail, votre boss vous annonce un licenciement économique.");
+        
+        Prediction p9 = new Prediction(Type.SANTE.toString(), 2, "Votre énergie sera en nette hausse.");
+        Prediction p10 = new Prediction(Type.SANTE.toString(), 3, "Vous serez en grande forme physique et morale, et ferez preuve d'un élan qui fera plaisir à voir.");
+        Prediction p11 = new Prediction(Type.SANTE.toString(), 1, "Votre trop-plein d'énergie risque de se changer en stress.");
+        Prediction p12 = new Prediction(Type.SANTE.toString(), 4, "Vous allez mourir demain. Profitez bien de votre dernière journée sur cette douce planète.");
         
         JpaUtil.obtenirEntityManager().persist(p1);
         JpaUtil.obtenirEntityManager().persist(p2);
@@ -132,6 +130,7 @@ public class VoyanceDAO {
         JpaUtil.obtenirEntityManager().persist(s10);
         JpaUtil.obtenirEntityManager().persist(s11);
         JpaUtil.obtenirEntityManager().persist(s12);
+        
         JpaUtil.validerTransaction();
     }
 }

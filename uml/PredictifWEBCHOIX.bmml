@@ -1,0 +1,29 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="752" measuredH="424" mockupW="450" mockupH="400">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="302" y="24" w="-1" h="-1" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Predict%27if%20-%20Choix%20client%0Ahttp%3A//predictif.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::FieldSet" x="318" y="110" w="413" h="241" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Liste%20des%20clients</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::DataGrid" x="320" y="128" w="411" h="183" measuredW="416" measuredH="141" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nom%2C%20Prenom%2C%20Mois%20de%20Naissance%2C%20e-mail%0ACHOUARD%2C%20Kim%2C%2002%2C%20arlette@chouard.me%0AROBELAIN%2C%20Thibaud%2C%2004%2C%20weloveb@robelain.com%0AKUNIS%2C%20Mila%2C%2003%2C%20mila@kunis.com%0APORTMAN%2C%20Natalie%2C%2009%2C%20natalie@bgportman.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="560" y="317" w="-1" h="-1" measuredW="162" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Vers%20cr%E9ation%20horoscope</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="634" y="365" w="-1" h="-1" measuredW="98" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Deconnexion</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

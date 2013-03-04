@@ -4,12 +4,9 @@
  */
 package Service;
 
-import DAO.ClientDAO;
-import DAO.JpaUtil;
+import DAO.*;
 import java.util.List;
-import modele.Client;
-import modele.Employe;
-import modele.Medium;
+import modele.*;
 
 /**
  *
@@ -53,8 +50,8 @@ public class ServClient {
         return ClientDAO.getSigne(iMois);
     }
     
-    public List<Medium> mediumParClient(Long iIdClient) {
-        return ClientDAO.getMediumByClient(iIdClient);
+    public List<Medium> recupMediums() {
+        return ClientDAO.getMediums();
     }
     
     public void supprimerClient(Long aiIdClient) {
