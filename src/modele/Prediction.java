@@ -44,7 +44,7 @@ public class Prediction implements Serializable {
         return sType;
     }
 
-    public void seteType(String sType) {
+    public void setsType(String sType) {
         this.sType = sType;
     }
 

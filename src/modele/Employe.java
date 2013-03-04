@@ -37,7 +37,7 @@ public class Employe implements Serializable {
         this.iNbClient = 0;
     }
 
-    public Employe(List<Client> lClients) {
+    public Employe(String sNom, List<Client> lClients) {
         this.lClients=lClients;
         this.iNbClient = lClients.size();
     }

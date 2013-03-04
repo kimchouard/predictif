@@ -21,7 +21,7 @@ public class PredictIF {
     public static ServClient servClient = new ServClient();
     public static ServVoyance ServVoyance = new ServVoyance();
     
-    //Afficher les clients
+    //Récupérer les clients
     public static Client getClient() {
         Scanner scanner = new Scanner( System.in );
         String input;
@@ -62,6 +62,7 @@ public class PredictIF {
         return cTemp;
     }
     
+    //Afficher les clients en fonction de leur nom
     public static List<Client> afficherClients(String aNom) {
         List<Client> lClient = servClient.clientParNom(aNom);
         int j = 0;
@@ -72,6 +73,7 @@ public class PredictIF {
         return lClient;
     }
     
+    //Chercher des clients
     public static Client chercherClient() {
         Scanner scanner = new Scanner( System.in );
         String input;

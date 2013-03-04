@@ -8,10 +8,10 @@
     <class>modele.Prediction</class>
     <class>modele.SigneAstro</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Predict-if"/>
-      <property name="javax.persistence.jdbc.password" value="ifinsa"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/Predictif"/>
+      <property name="javax.persistence.jdbc.password" value="123456"/>
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.user" value="IFINSA"/>
+      <property name="javax.persistence.jdbc.user" value="ifinsa"/>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
     </properties>
   </persistence-unit>

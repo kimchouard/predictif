@@ -42,12 +42,24 @@ public class Client implements Serializable {
         this.mMediums = mMediums;
     }
 
+    public long getiIdClient() {
+        return iIdClient;
+    }
+
     public String getsNom() {
         return sNom;
     }
 
     public void setsNom(String sNom) {
         this.sNom = sNom;
+    }
+
+    public String getsPrenom() {
+        return sPrenom;
+    }
+
+    public void setsPrenom(String sPrenom) {
+        this.sPrenom = sPrenom;
     }
 
     public String getsAdresse() {
@@ -72,18 +84,6 @@ public class Client implements Serializable {
 
     public void setiMoisNaissance(int iMoisNaissance) {
         this.iMoisNaissance = iMoisNaissance;
-    }
-
-    public String getsPrenom() {
-        return sPrenom;
-    }
-
-    public long getiIdClient() {
-        return iIdClient;
-    }
-
-    public void setsPrenom(String sPrenom) {
-        this.sPrenom = sPrenom;
     }
 
     public List<Medium> getmMediums() {
