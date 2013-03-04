@@ -51,7 +51,7 @@ public class PredictIF {
         List<Medium> mChoisis = new ArrayList();
         int idMed;
         do {
-            System.out.println("Choisissez un client grace à son chiffre :");
+            System.out.println("Choisissez un medium grace à son chiffre :");
             input = scanner.nextLine();
             idMed = Integer.valueOf(input);
         } while (!(idMed < lMed.size()) && (idMed >= 0));

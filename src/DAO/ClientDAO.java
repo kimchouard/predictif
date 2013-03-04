@@ -71,6 +71,7 @@ public class ClientDAO {
     }
     
     public static void deleteClient(Long aiIdClient) {
-        
+        Client cClient = JpaUtil.obtenirEntityManager().find(Client.class, aiIdClient);
+        JpaUtil.obtenirEntityManager().remove(cClient);
     }
 }

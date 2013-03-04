@@ -7,11 +7,13 @@ package modele;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -27,8 +29,10 @@ public class Client implements Serializable {
     private String sAdresse;
     private String sEmail;
     private int iMoisNaissance;
-    @ManyToMany
+    @ManyToMany (cascade = CascadeType.DETACH)
     private List<Medium> mMediums = new ArrayList<>();
+    @ManyToOne (cascade = CascadeType.DETACH)
+    private Employe eEmploye;
             
     public Client() {
     }
