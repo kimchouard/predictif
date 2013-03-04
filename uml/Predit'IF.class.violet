@@ -187,8 +187,8 @@
       <void method="setRect">
        <double>10.0</double>
        <double>450.0</double>
-       <double>160.0</double>
-       <double>80.0</double>
+       <double>180.0</double>
+       <double>100.0</double>
       </void>
      </object>
     </void>
@@ -200,7 +200,8 @@
     </void>
     <void property="methods">
      <void property="text">
-      <string>SigneAstro(asNom, aiMois)</string>
+      <string>+ SigneAstro(asNom, aiMois)
++ getsAstro(): String</string>
      </void>
     </void>
     <void property="name">
@@ -347,21 +348,23 @@
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>80.0</double>
-       <double>100.0</double>
-       <double>500.0</double>
-       <double>140.0</double>
+       <double>10.0</double>
+       <double>40.0</double>
+       <double>680.0</double>
+       <double>180.0</double>
       </void>
      </object>
     </void>
     <void property="methods">
      <void property="text">
-      <string>+ ajouterClient(cClient) //ajouter info -&gt; calculer signe
-+ ajouterMedium(mMedium)
-+ ajouterEmploye(eEmploye)
-+ modifierClient(nsIdClient, nsNom, nsPrenom, nsAdresse, nsEmail, neMoisNaissance)
-+ supprimerClient(aiIdClient)
-+ clientParNom( sName ) : List de Clients</string>
+      <string>+ ajouterClient(Client)
++ ajouterMedium(Medium)
++ ajouterEmploye(Employe)
++ modifierClient(Long niIdClient, String nsNom, String nsPrenom, String nsAdresse, String nsEmail, int niMoisNaissance)
++ clientParNom(String aNom): List&lt;Client&gt;
++ signeAstro(int iMois)
++ recupMediums(): List&lt;Medium&gt;
++ supprimerClient(Long aiIdClient)</string>
      </void>
     </void>
     <void property="name">
@@ -375,19 +378,19 @@
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double6"/>
-      <double>80.0</double>
+      <double>10.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double6"/>
-      <double>100.0</double>
+      <double>40.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>80.0</double>
-     <double>100.0</double>
+     <double>10.0</double>
+     <double>40.0</double>
     </void>
    </object>
   </void>
@@ -396,31 +399,29 @@
     <void property="bounds">
      <object class="java.awt.geom.Rectangle2D$Double">
       <void method="setRect">
-       <double>780.0</double>
-       <double>90.0</double>
-       <double>440.0</double>
-       <double>240.0</double>
+       <double>850.0</double>
+       <double>40.0</double>
+       <double>300.0</double>
+       <double>200.0</double>
       </void>
      </object>
     </void>
     <void property="attributes">
      <void property="text">
       <string>- Employe eEmploye;
-- Client cClient;
-- Medium mMedium;
-- String sHoroscope;
-- List&lt;Prediction&gt; liListesPredictions;</string>
+- Horoscope hHoroscope;</string>
      </void>
     </void>
     <void property="methods">
      <void property="text">
-      <string>+ identifierEmp(iCode) : Employe
-+ choisirClient(iIdClient) : Client
-+ recupPredictions()
-+ selectPrediction(iIdPred)
-+ signerHoroscope(iIdMedium)
-+ creerHoroscope() : string //remet les variables locales à 0, sauf codeemploye
-+ getLastHoroscope();
+      <string>+ identifierEmp(Long) : Employe
++ choisirClient(Client) : Client
++ recupPredictions(Prediction.Type): List&lt;Prediction&gt;
++ selectPrediction(Prediction)
++ actualPredictions(): List&lt;Prediction&gt;
++ signerHoroscope(Medium)
++ getmMedium(): Medium
++ creerHoroscope(): Horoscope
 + initialisation()</string>
      </void>
     </void>
@@ -435,19 +436,19 @@
      <string>x</string>
      <void method="set">
       <object idref="Point2D$Double7"/>
-      <double>780.0</double>
+      <double>850.0</double>
      </void>
     </void>
     <void class="java.awt.geom.Point2D$Double" method="getField">
      <string>y</string>
      <void method="set">
       <object idref="Point2D$Double7"/>
-      <double>90.0</double>
+      <double>40.0</double>
      </void>
     </void>
     <void method="setLocation">
-     <double>780.0</double>
-     <double>90.0</double>
+     <double>850.0</double>
+     <double>40.0</double>
     </void>
    </object>
   </void>

@@ -26,17 +26,17 @@ public class PredictIF {
         Scanner scanner = new Scanner( System.in );
         String input;
         
-        System.out.println("Merci de rentrez le nom :");
+        System.out.println("Merci de rentrer le nom :");
         String sNom = scanner.nextLine();
-        System.out.println("Merci de rentrez le prénom :");
+        System.out.println("Merci de rentrer le prénom :");
         String sPrenom = scanner.nextLine();
-        System.out.println("Merci de rentrez l'adresse :");
+        System.out.println("Merci de rentrer l'adresse :");
         String sAdresse = scanner.nextLine();
-        System.out.println("Merci de rentrez l'email :");
+        System.out.println("Merci de rentrer l'email :");
         String sEmail = scanner.nextLine();
         int iMoisNaissance;
         do {
-            System.out.println("Merci de rentrez le mois de naissance (1-12) :");
+            System.out.println("Merci de rentrer le mois de naissance (1-12) :");
             String sMois = scanner.nextLine();
             iMoisNaissance = Integer.valueOf(sMois);
         } while (iMoisNaissance == 0 && iMoisNaissance > 12);
@@ -78,7 +78,7 @@ public class PredictIF {
         Scanner scanner = new Scanner( System.in );
         String input;
         
-        System.out.println("Merci de rentrez le nom du client recherché :");
+        System.out.println("Merci de rentrer le nom du client recherché :");
         String sNom = scanner.nextLine();
 
         List<Client> lClient = afficherClients(sNom);
@@ -146,7 +146,7 @@ public class PredictIF {
                     else if ("2".equals(input)) {
                         Client cTemp = chercherClient();
 
-                        System.out.println("Merci de rentrez les nouvelles informations du client :");
+                        System.out.println("Merci de rentrer les nouvelles informations du client :");
                         Client cNew = getClient();
 
                         servClient.modifierClient(cTemp.getiIdClient(),cNew.getsNom(), cNew.getsPrenom(), cNew.getsAdresse(), cNew.getsEmail(), cNew.getiMoisNaissance());
@@ -262,6 +262,8 @@ public class PredictIF {
                     String Meds = "";
                     for (Medium med : hActuel.getcClient().getmMediums()) { Meds+=med.getsNom()+", "; }
                     System.out.println("Vos médiums préférés : "+Meds);
+                    
+                    System.out.println("\n Cher "+hActuel.getcClient().getsPrenom()+", votre voyance vous est offerte par "+hActuel.getmMedium().getsNom()+"\n");
                     
                     for (Prediction pred : hActuel.getPred()) {
                         System.out.println(pred.getsType()+" ("+pred.getiIntensite()+") : "+pred.getiIntitulle()+"\n");
