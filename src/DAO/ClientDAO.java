@@ -71,7 +71,24 @@ public class ClientDAO {
     }
     
     public static void deleteClient(Long aiIdClient) {
+        //Récupération du client à supprimer
         Client cClient = JpaUtil.obtenirEntityManager().find(Client.class, aiIdClient);
+        
+        //Suppression du lien avec l'employé
+        String sQuery = "select e from Employe e";
+        Query query = JpaUtil.obtenirEntityManager().createQuery(sQuery);
+        List<Employe> lEmp = (List<Employe>) query.getResultList();
+        
+        for (Employe emp : lEmp) {
+            for (Client eClient : emp.getlClients()) {
+                if (eClient == cClient) {
+                    emp.getlClients().remove(eClient);
+                    break;
+                }
+            }
+        }
+        
+        //Suppression du client.
         JpaUtil.obtenirEntityManager().remove(cClient);
     }
 }

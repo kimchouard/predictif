@@ -109,6 +109,10 @@ public class PredictIF {
             
             ServVoyance.initialisation();
             System.out.println("Initialisation terminée.\n");
+            
+            //----------------------------------------------------------------------------
+            //                          Choix du mode
+            //----------------------------------------------------------------------------
             do {
                 System.out.println("Merci de chosir un mode de gestion : 1) Client, 2) Horoscope.");
                 input = scanner.nextLine();

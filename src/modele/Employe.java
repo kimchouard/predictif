@@ -25,7 +25,7 @@ public class Employe implements Serializable {
     private Long iCode;
     private String sNom;
     private int iNbClient;
-    @OneToMany (cascade = CascadeType.DETACH)
+    @OneToMany
     private List<Client> lClients = new ArrayList();
 
     public Employe() {

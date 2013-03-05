@@ -29,9 +29,9 @@ public class Client implements Serializable {
     private String sAdresse;
     private String sEmail;
     private int iMoisNaissance;
-    @ManyToMany (cascade = CascadeType.DETACH)
+    @ManyToMany
     private List<Medium> mMediums = new ArrayList<>();
-    @ManyToOne (cascade = CascadeType.DETACH)
+    @ManyToOne
     private Employe eEmploye;
             
     public Client() {
@@ -44,6 +44,10 @@ public class Client implements Serializable {
         this.sEmail = sEmail;
         this.iMoisNaissance = iMoisNaissance;
         this.mMediums = mMediums;
+    }
+
+    public Employe geteEmploye() {
+        return eEmploye;
     }
 
     public long getiIdClient() {
